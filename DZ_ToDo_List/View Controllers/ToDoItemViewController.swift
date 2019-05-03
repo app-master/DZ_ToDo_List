@@ -51,8 +51,6 @@ class ToDoItemViewController: UITableViewController {
     }
     
     private func updateToDo() {
-        tableView.endEditing(true)
-        
         for (key, value) in dict {
             todo.setValue(value, forKey: key)
         }
@@ -65,6 +63,7 @@ class ToDoItemViewController: UITableViewController {
         
         if isEditing {
             // Done button pressed
+            tableView.endEditing(true)
             updateToDo()
         }
         
