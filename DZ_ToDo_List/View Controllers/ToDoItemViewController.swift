@@ -10,20 +10,79 @@ import UIKit
 
 class ToDoItemViewController: UITableViewController {
 
-    var todo: ToDo!
+    var todo = ToDo()
+    var dict = [String : Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
         
-        navigationItem.leftBarButtonItem = editButtonItem
+        let editButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(actionEditButton))
+        navigationItem.rightBarButtonItem = editButtonItem
+        
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
+    // MARK: - Methods
+    
+    private func updateCancelButton() {
+        if tableView.isEditing {
+            let cancelButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(actionCancelButton))
+            navigationItem.leftBarButtonItem = cancelButtonItem
+        } else {
+            navigationItem.leftBarButtonItem = nil
+        }
+    }
+    
+    private func updateEditButton() {
+        var item = UIBarButtonItem.SystemItem.edit
         
+        if tableView.isEditing {
+            item = UIBarButtonItem.SystemItem.done
+        }
+        
+        let editButtonItem = UIBarButtonItem(barButtonSystemItem: item, target: self, action: #selector(actionEditButton))
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+    
+    private func updateBurButtonItems() {
+        updateCancelButton()
+        updateEditButton()
+    }
+    
+    private func updateToDo() {
+        tableView.endEditing(true)
+        
+        for (key, value) in dict {
+            todo.setValue(value, forKey: key)
+        }
+        dict.removeAll()
+    }
+    
+    @objc private func actionEditButton(_ sender: UIBarButtonItem) {
+        
+        let isEditing = tableView.isEditing
+        
+        if isEditing {
+            // Done button pressed
+            updateToDo()
+        }
+        
+        tableView.setEditing(!isEditing, animated: true)
         tableView.reloadData()
+        
+        updateBurButtonItems()
+        
+    }
+    
+    @objc func actionCancelButton(_ sender: UIBarButtonItem) {
+        
+        dict.removeAll()
+        
+        tableView.setEditing(false, animated: true)
+        tableView.reloadData()
+        
+        updateBurButtonItems()
     }
     
 }
@@ -56,8 +115,10 @@ extension ToDoItemViewController {
 }
 
 extension ToDoItemViewController: StringCellDelegate {
-    func editingDidEndCell(_ cell: StringCell, with resultText: String?) {
+    func editingDidEndCell(_ cell: StringCell, with resultText: String) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        print(todo.keys[indexPath.section])
+        let key = todo.keys[indexPath.section]
+        let value = resultText
+        dict.updateValue(value, forKey: key)
     }
 }

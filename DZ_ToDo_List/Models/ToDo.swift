@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToDo {
+@objcMembers class ToDo: NSObject {
     var title: String
     var isComplete: Bool
     var dueDate: Date
@@ -27,7 +27,7 @@ class ToDo {
         self.image = image
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(title: String(),
                   isComplete: Bool(),
                   dueDate: Date(),

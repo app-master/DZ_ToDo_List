@@ -26,7 +26,7 @@ class CellConfigurator {
                 cell.delegate = delegate
             }
             
-            if controller.isEditing {
+            if controller.tableView.isEditing {
                 cell.titleLabel.isHidden = true
                 cell.titleField.text = strValue
                 cell.titleField.isHidden = false

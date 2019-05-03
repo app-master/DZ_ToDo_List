@@ -9,7 +9,7 @@
 import UIKit
 
 protocol StringCellDelegate: class {
-    func editingDidEndCell(_ cell: StringCell, with resultText: String?)
+    func editingDidEndCell(_ cell: StringCell, with resultText: String)
 }
 
 class StringCell: UITableViewCell {
@@ -20,7 +20,7 @@ class StringCell: UITableViewCell {
     weak var delegate: StringCellDelegate?
     
     @IBAction func actionFieldEditingEnd(_ textField: UITextField) {
-        delegate?.editingDidEndCell(self, with: textField.text)
+        delegate?.editingDidEndCell(self, with: textField.text ?? "")
     }
     
 }
