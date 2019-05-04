@@ -23,6 +23,8 @@ class CellConfigurator {
             return getConfiguredStringCell(in: controller, for: value as! String)
         case is Bool:
             return getConfiguredBoolCell(in: controller, for: value as! Bool)
+        case is Date:
+            return getConfiguredDateCell(in: controller, for: value as! Date)
         default:
             return UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
         }
@@ -66,6 +68,29 @@ class CellConfigurator {
             cell.titleLabel.text = value ? "True" : "False"
             cell.titleLabel.isHidden = false
             cell.theSwitch.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    private static func getConfiguredDateCell(in controller: UITableViewController, for value: Date) -> DateCell {
+        
+        let cell = controller.tableView.dequeueReusableCell(withIdentifier: "DateCell") as! DateCell
+        
+        cell.datePicker.minimumDate = Date()
+        
+        if let delegate = controller as? DateCellDelegate {
+            cell.delegate = delegate
+        }
+        
+        if controller.tableView.isEditing {
+            cell.datePicker.setDate(value, animated: false)
+            cell.datePicker.isHidden = false
+            cell.dateLabel.isHidden = true
+        } else {
+            cell.dateLabel.text = value.shortFormatted
+            cell.dateLabel.isHidden = false
+            cell.datePicker.isHidden = true
         }
         
         return cell

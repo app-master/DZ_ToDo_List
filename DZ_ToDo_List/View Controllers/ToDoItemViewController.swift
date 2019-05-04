@@ -18,6 +18,7 @@ class ToDoItemViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
         tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
+        tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
         
         let editButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(actionEditButton))
         navigationItem.rightBarButtonItem = editButtonItem
@@ -63,6 +64,8 @@ class ToDoItemViewController: UITableViewController {
         let key = todo.keys[indexPath.section]
         dict.updateValue(value, forKey: key)
     }
+    
+    // MARK: - Actions
     
     @objc private func actionEditButton(_ sender: UIBarButtonItem) {
         
@@ -120,6 +123,26 @@ extension ToDoItemViewController {
     
 }
 
+// MARK: - Table View Delegate
+
+extension ToDoItemViewController {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let value = todo.values[indexPath.section]
+        
+        if value is Date &&
+            tableView.isEditing {
+            return 216.0
+        }
+        
+        return UITableView.automaticDimension
+    }
+    
+}
+
+// MARK: - ToDoItemCell Delegate
+
 extension ToDoItemViewController: StringCellDelegate {
     func editingDidEndCell(_ cell: StringCell, with resultText: String) {
         updateValue(resultText, for: cell)
@@ -128,6 +151,12 @@ extension ToDoItemViewController: StringCellDelegate {
 
 extension ToDoItemViewController: BoolCellDelegate {
     func switchValueChangedInCell(_ cell: BoolCell, newValue: Bool) {
+        updateValue(newValue, for: cell)
+    }
+}
+
+extension ToDoItemViewController: DateCellDelegate {
+    func editingDidEndCell(_ cell: UITableViewCell, with newValue: Any) {
         updateValue(newValue, for: cell)
     }
 }
