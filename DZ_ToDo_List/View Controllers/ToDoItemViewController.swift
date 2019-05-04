@@ -17,6 +17,7 @@ class ToDoItemViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
+        tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
         
         let editButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(actionEditButton))
         navigationItem.rightBarButtonItem = editButtonItem
@@ -55,6 +56,12 @@ class ToDoItemViewController: UITableViewController {
             todo.setValue(value, forKey: key)
         }
         dict.removeAll()
+    }
+    
+    private func updateValue(_ value: Any, for cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let key = todo.keys[indexPath.section]
+        dict.updateValue(value, forKey: key)
     }
     
     @objc private func actionEditButton(_ sender: UIBarButtonItem) {
@@ -115,9 +122,12 @@ extension ToDoItemViewController {
 
 extension ToDoItemViewController: StringCellDelegate {
     func editingDidEndCell(_ cell: StringCell, with resultText: String) {
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let key = todo.keys[indexPath.section]
-        let value = resultText
-        dict.updateValue(value, forKey: key)
+        updateValue(resultText, for: cell)
+    }
+}
+
+extension ToDoItemViewController: BoolCellDelegate {
+    func switchValueChangedInCell(_ cell: BoolCell, newValue: Bool) {
+        updateValue(newValue, for: cell)
     }
 }

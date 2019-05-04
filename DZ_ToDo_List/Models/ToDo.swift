@@ -18,8 +18,8 @@ import UIKit
     init(title: String,
          isComplete: Bool,
          dueDate: Date,
-         notes: String? = nil,
-         image: UIImage? = nil) {
+         notes: String,
+         image: UIImage) {
         self.title = title
         self.isComplete = isComplete
         self.dueDate = dueDate
@@ -31,8 +31,8 @@ import UIKit
         self.init(title: String(),
                   isComplete: Bool(),
                   dueDate: Date(),
-                  notes: nil,
-                  image: nil)
+                  notes: String(),
+                  image: UIImage())
     }
 }
 
@@ -62,9 +62,9 @@ extension Todos {
     
     static func loadSampleData() -> Todos {
         return [
-            ToDo(title: "Купить крем", isComplete: false, dueDate: Date(), notes: "Для загара"),
-            ToDo(title: "Сходить на выставку", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24), notes: "Выставка Эдварда Мунка", image: UIImage(named: "scream.jpeg")),
-            ToDo(title: "Заработать 10000$", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24 * 180))
+            ToDo(title: "Купить крем", isComplete: false, dueDate: Date(), notes: "Для загара", image: UIImage()),
+            ToDo(title: "Сходить на выставку", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24), notes: "Выставка Эдварда Мунка", image: UIImage(named: "scream.jpeg")!),
+            ToDo(title: "Заработать 10000$", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24 * 180), notes: "", image: UIImage())
         ]
     }
     

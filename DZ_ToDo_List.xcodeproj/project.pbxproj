@@ -19,6 +19,8 @@
 		CE105B0E227725C8006D180D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0D227725C8006D180D /* CellConfigurator.swift */; };
 		CE105B122277348B006D180D /* StringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B102277348B006D180D /* StringCell.swift */; };
 		CE105B132277348B006D180D /* StringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE105B112277348B006D180D /* StringCell.xib */; };
+		CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFA227E040E00FE0493 /* BoolCell.swift */; };
+		CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55AFB227E040E00FE0493 /* BoolCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		CE105B0D227725C8006D180D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		CE105B102277348B006D180D /* StringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCell.swift; sourceTree = "<group>"; };
 		CE105B112277348B006D180D /* StringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringCell.xib; sourceTree = "<group>"; };
+		CEE55AFA227E040E00FE0493 /* BoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolCell.swift; sourceTree = "<group>"; };
+		CEE55AFB227E040E00FE0493 /* BoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoolCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			children = (
 				CE105AFE2276FF7D006D180D /* Storyboard */,
 				CE105B1422773495006D180D /* StringCell */,
+				CEE55AFE227E041800FE0493 /* BoolCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +154,15 @@
 			path = StringCell;
 			sourceTree = "<group>";
 		};
+		CEE55AFE227E041800FE0493 /* BoolCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEE55AFA227E040E00FE0493 /* BoolCell.swift */,
+				CEE55AFB227E040E00FE0493 /* BoolCell.xib */,
+			);
+			path = BoolCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */,
 				CE105AF62276FF4C006D180D /* LaunchScreen.storyboard in Resources */,
 				CE105AF32276FF4C006D180D /* Assets.xcassets in Resources */,
 				CE105B132277348B006D180D /* StringCell.xib in Resources */,
@@ -226,6 +241,7 @@
 				CE105B122277348B006D180D /* StringCell.swift in Sources */,
 				CE105AEC2276FF49006D180D /* AppDelegate.swift in Sources */,
 				CE105B09227710F5006D180D /* String+Extension.swift in Sources */,
+				CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */,
 				CE105B06227703C3006D180D /* ToDo.swift in Sources */,
 				CE105B0E227725C8006D180D /* CellConfigurator.swift in Sources */,
 				CE105B0C2277166C006D180D /* Date+Extension.swift in Sources */,
