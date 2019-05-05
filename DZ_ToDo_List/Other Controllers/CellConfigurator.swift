@@ -19,7 +19,7 @@ class CellConfigurator {
         cell.detailTextLabel?.text = todo.dueDate.shortFormatted
     }
     
-    static func getConfiguredToDoItemCell(in controller: UITableViewController, for value: Any) -> UITableViewCell {
+    static func getConfiguredToDoItemCell(in controller: UITableViewController, for value: Any) -> ToDoItemCell {
         
         switch value {
         case is String:
@@ -31,7 +31,7 @@ class CellConfigurator {
         case is UIImage:
             return getConfiguredImageCell(in: controller, for: value as! UIImage)
         default:
-            return UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
+            return ToDoItemCell()
         }
         
     }
@@ -39,10 +39,6 @@ class CellConfigurator {
     private static func getConfiguredStringCell(in controller: UITableViewController, for value: String) -> StringCell {
     
         let cell = controller.tableView.dequeueReusableCell(withIdentifier: "StringCell") as! StringCell
-        
-        if let delegate = controller as? StringCellDelegate {
-            cell.delegate = delegate
-        }
         
         if controller.tableView.isEditing {
             cell.titleLabel.isHidden = true
@@ -60,10 +56,6 @@ class CellConfigurator {
     private static func getConfiguredBoolCell(in controller: UITableViewController, for value: Bool) -> BoolCell {
     
         let cell = controller.tableView.dequeueReusableCell(withIdentifier: "BoolCell") as! BoolCell
-        
-        if let delegate = controller as? BoolCellDelegate {
-            cell.delegate = delegate
-        }
         
         if controller.tableView.isEditing {
             cell.theSwitch.setOn(value, animated: false)
@@ -84,10 +76,6 @@ class CellConfigurator {
         
         cell.datePicker.minimumDate = Date()
         
-        if let delegate = controller as? DateCellDelegate {
-            cell.delegate = delegate
-        }
-        
         if controller.tableView.isEditing {
             cell.datePicker.setDate(value, animated: false)
             cell.datePicker.isHidden = false
@@ -105,10 +93,6 @@ class CellConfigurator {
         
         let cell = controller.tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! ImageCell
         
-        if let delegate = controller as? ImageCellDelegate {
-            cell.delegate = delegate
-        }
-        
         var image = value
         
         if image.size == CGSize.zero {
@@ -116,12 +100,12 @@ class CellConfigurator {
         }
         
         if controller.tableView.isEditing {
-            cell.stackView.isHidden = false
+            cell.photoButton.isHidden = false
             cell.photoView.isHidden = true
         } else {
             cell.photoView.image = image
             cell.photoView.isHidden = false
-            cell.stackView.isHidden = true
+            cell.photoButton.isHidden = true
         }
         
         return cell

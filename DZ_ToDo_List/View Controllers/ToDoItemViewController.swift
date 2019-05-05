@@ -118,6 +118,7 @@ extension ToDoItemViewController {
         let value = todo.values[indexPath.section]
         
         let cell = CellConfigurator.getConfiguredToDoItemCell(in: self, for: value)
+        cell.delegate = self
         
         return cell
     }
@@ -139,30 +140,13 @@ extension ToDoItemViewController {
 
 // MARK: - ToDoItemCell Delegate
 
-extension ToDoItemViewController: StringCellDelegate {
-    func editingDidEndCell(_ cell: StringCell, with resultText: String) {
-        updateValue(resultText, for: cell)
-    }
-}
-
-extension ToDoItemViewController: BoolCellDelegate {
-    func switchValueChangedInCell(_ cell: BoolCell, newValue: Bool) {
+extension ToDoItemViewController: ToDoItemCellDelegate {
+    func editingDidEndCell(_ cell: ToDoItemCell, with newValue: Any) {
         updateValue(newValue, for: cell)
-    }
-}
-
-extension ToDoItemViewController: DateCellDelegate {
-    func editingDidEndCell(_ cell: UITableViewCell, with newValue: Any) {
-        updateValue(newValue, for: cell)
-    }
-}
-
-extension ToDoItemViewController: ImageCellDelegate {
-    func photoLibraryButtonPressed(sender: UIButton, in cell: ImageCell) {
-        print(#function)
     }
     
-    func cameraButtonPressed(sender: UIButton, in cell: ImageCell) {
+    func buttonTapped(in cell: ToDoItemCell, sender: UIButton) {
         print(#function)
     }
 }
+

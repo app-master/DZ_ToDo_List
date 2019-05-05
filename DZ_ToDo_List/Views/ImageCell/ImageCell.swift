@@ -8,24 +8,13 @@
 
 import UIKit
 
-protocol ImageCellDelegate: class {
-   func photoLibraryButtonPressed(sender: UIButton, in cell: ImageCell)
-   func cameraButtonPressed(sender: UIButton, in cell: ImageCell)
-}
-
-class ImageCell: UITableViewCell {
+class ImageCell: ToDoItemCell {
 
     @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var photoButton: UIButton!
     
-    weak var delegate: ImageCellDelegate?
-    
-    @IBAction func actionPhotoLibraryButton(_ sender: UIButton) {
-        delegate?.photoLibraryButtonPressed(sender: sender, in: self)
-    }
-    
-    @IBAction func actionCameraButton(_ sender: UIButton) {
-        delegate?.cameraButtonPressed(sender: sender, in: self)
+    @IBAction func actionPhotoButton(_ sender: UIButton) {
+        delegate?.buttonTapped(in: self, sender: sender)
     }
     
 }

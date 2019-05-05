@@ -25,6 +25,7 @@
 		CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55AFB227E040E00FE0493 /* BoolCell.xib */; };
 		CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFF227E16CA00FE0493 /* DateCell.swift */; };
 		CEE55B02227E16CA00FE0493 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55B00227E16CA00FE0493 /* DateCell.xib */; };
+		CEF4BA7A227F315C00935992 /* ToDoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4BA79227F315C00935992 /* ToDoItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CEE55AFB227E040E00FE0493 /* BoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoolCell.xib; sourceTree = "<group>"; };
 		CEE55AFF227E16CA00FE0493 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = ../DateCell.swift; sourceTree = "<group>"; };
 		CEE55B00227E16CA00FE0493 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DateCell.xib; path = ../DateCell.xib; sourceTree = "<group>"; };
+		CEF4BA79227F315C00935992 /* ToDoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		CE20C984227F30AE008ABB43 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CEF4BA79227F315C00935992 /* ToDoItemCell.swift */,
 				CE105B1422773495006D180D /* StringCell */,
 				CEE55AFE227E041800FE0493 /* BoolCell */,
 				CEE55B03227E16DB00FE0493 /* DateCell */,
@@ -284,6 +287,7 @@
 				CE105B0322770343006D180D /* ToDoItemViewController.swift in Sources */,
 				CE105B122277348B006D180D /* StringCell.swift in Sources */,
 				CE105AEC2276FF49006D180D /* AppDelegate.swift in Sources */,
+				CEF4BA7A227F315C00935992 /* ToDoItemCell.swift in Sources */,
 				CE105B09227710F5006D180D /* String+Extension.swift in Sources */,
 				CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */,
 				CE105B06227703C3006D180D /* ToDo.swift in Sources */,

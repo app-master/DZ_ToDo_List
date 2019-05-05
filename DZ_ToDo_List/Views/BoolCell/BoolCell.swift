@@ -8,20 +8,13 @@
 
 import UIKit
 
-protocol BoolCellDelegate: class {
-    func switchValueChangedInCell(_ cell: BoolCell, newValue: Bool)
-}
-
-class BoolCell: UITableViewCell {
+class BoolCell: ToDoItemCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var theSwitch: UISwitch!
     
-    weak var delegate: BoolCellDelegate?
-    
     @IBAction func actionSwitch(_ sender: UISwitch) {
-        delegate?.switchValueChangedInCell(self, newValue: sender.isOn)
+        delegate?.editingDidEndCell(self, with: sender.isOn)
     }
-    
     
 }

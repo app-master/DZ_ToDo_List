@@ -8,16 +8,10 @@
 
 import UIKit
 
-protocol DateCellDelegate: class {
-    func editingDidEndCell(_ cell: UITableViewCell, with newValue: Any)
-}
-
-class DateCell: UITableViewCell {
+class DateCell: ToDoItemCell {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    weak var delegate: DateCellDelegate?
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         delegate?.editingDidEndCell(self, with: sender.date)

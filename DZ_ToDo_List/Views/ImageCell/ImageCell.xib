@@ -19,44 +19,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kb2-W9-VnI">
-                        <rect key="frame" x="16" y="8" width="288" height="106.5"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ch-fA-r6g">
-                                <rect key="frame" x="0.0" y="0.0" width="140" height="106.5"/>
-                                <state key="normal" title="Photo Library"/>
-                                <connections>
-                                    <action selector="actionPhotoLibraryButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YJk-xQ-1eI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqB-Qg-cDE">
-                                <rect key="frame" x="148" y="0.0" width="140" height="106.5"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="actionCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Bl-mw-IgR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nui-Qf-Dga">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                     </imageView>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-59-qfn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
+                        <state key="normal" title="Take Image"/>
+                        <connections>
+                            <action selector="actionPhotoButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="B3w-wa-wYK"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Nui-Qf-Dga" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6lu-vL-8GW"/>
-                    <constraint firstAttribute="trailing" secondItem="kb2-W9-VnI" secondAttribute="trailing" constant="16" id="7Sx-dg-f5N"/>
                     <constraint firstAttribute="trailing" secondItem="Nui-Qf-Dga" secondAttribute="trailing" id="BIo-Fo-0Gj"/>
                     <constraint firstItem="Nui-Qf-Dga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Kw2-Wa-Ywv"/>
+                    <constraint firstItem="drJ-59-qfn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NFK-T7-9Lz"/>
                     <constraint firstAttribute="bottom" secondItem="Nui-Qf-Dga" secondAttribute="bottom" id="PXa-hV-YWf"/>
-                    <constraint firstItem="kb2-W9-VnI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="awy-Hn-21S"/>
-                    <constraint firstAttribute="bottom" secondItem="kb2-W9-VnI" secondAttribute="bottom" constant="8" id="axs-dN-TvR"/>
-                    <constraint firstItem="kb2-W9-VnI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qez-p5-2vE"/>
+                    <constraint firstAttribute="trailing" secondItem="drJ-59-qfn" secondAttribute="trailing" id="Vu7-FZ-Q7g"/>
+                    <constraint firstAttribute="bottom" secondItem="drJ-59-qfn" secondAttribute="bottom" id="dOx-Vz-o4a"/>
+                    <constraint firstItem="drJ-59-qfn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pvx-Hs-uYc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="photoView" destination="Nui-Qf-Dga" id="3o0-1I-Cb8"/>
-                <outlet property="stackView" destination="kb2-W9-VnI" id="ipj-nw-sLJ"/>
+                <outlet property="photoButton" destination="drJ-59-qfn" id="Aal-SO-8Z6"/>
+                <outlet property="photoView" destination="Nui-Qf-Dga" id="cTg-bn-iIO"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="153.01339285714286"/>
         </tableViewCell>
