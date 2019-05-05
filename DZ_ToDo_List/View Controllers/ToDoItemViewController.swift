@@ -19,6 +19,7 @@ class ToDoItemViewController: UITableViewController {
         tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
         tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
         tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
+        tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
         
         let editButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(actionEditButton))
         navigationItem.rightBarButtonItem = editButtonItem
@@ -131,12 +132,7 @@ extension ToDoItemViewController {
         
         let value = todo.values[indexPath.section]
         
-        if value is Date &&
-            tableView.isEditing {
-            return 216.0
-        }
-        
-        return UITableView.automaticDimension
+        return CellConfigurator.getHeighForCell(with: value, in: self)
     }
     
 }
@@ -158,5 +154,15 @@ extension ToDoItemViewController: BoolCellDelegate {
 extension ToDoItemViewController: DateCellDelegate {
     func editingDidEndCell(_ cell: UITableViewCell, with newValue: Any) {
         updateValue(newValue, for: cell)
+    }
+}
+
+extension ToDoItemViewController: ImageCellDelegate {
+    func photoLibraryButtonPressed(sender: UIButton, in cell: ImageCell) {
+        print(#function)
+    }
+    
+    func cameraButtonPressed(sender: UIButton, in cell: ImageCell) {
+        print(#function)
     }
 }

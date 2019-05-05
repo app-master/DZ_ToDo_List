@@ -19,6 +19,8 @@
 		CE105B0E227725C8006D180D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0D227725C8006D180D /* CellConfigurator.swift */; };
 		CE105B122277348B006D180D /* StringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B102277348B006D180D /* StringCell.swift */; };
 		CE105B132277348B006D180D /* StringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE105B112277348B006D180D /* StringCell.xib */; };
+		CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C97F227F181F008ABB43 /* ImageCell.swift */; };
+		CE20C982227F181F008ABB43 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20C980227F181F008ABB43 /* ImageCell.xib */; };
 		CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFA227E040E00FE0493 /* BoolCell.swift */; };
 		CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55AFB227E040E00FE0493 /* BoolCell.xib */; };
 		CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFF227E16CA00FE0493 /* DateCell.swift */; };
@@ -40,6 +42,8 @@
 		CE105B0D227725C8006D180D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		CE105B102277348B006D180D /* StringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCell.swift; sourceTree = "<group>"; };
 		CE105B112277348B006D180D /* StringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringCell.xib; sourceTree = "<group>"; };
+		CE20C97F227F181F008ABB43 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		CE20C980227F181F008ABB43 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		CEE55AFA227E040E00FE0493 /* BoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolCell.swift; sourceTree = "<group>"; };
 		CEE55AFB227E040E00FE0493 /* BoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoolCell.xib; sourceTree = "<group>"; };
 		CEE55AFF227E16CA00FE0493 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = ../DateCell.swift; sourceTree = "<group>"; };
@@ -90,9 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CE105AFE2276FF7D006D180D /* Storyboard */,
-				CE105B1422773495006D180D /* StringCell */,
-				CEE55AFE227E041800FE0493 /* BoolCell */,
-				CEE55B03227E16DB00FE0493 /* DateCell */,
+				CE20C984227F30AE008ABB43 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,7 +158,29 @@
 				CE105B102277348B006D180D /* StringCell.swift */,
 				CE105B112277348B006D180D /* StringCell.xib */,
 			);
-			path = StringCell;
+			name = StringCell;
+			path = ../StringCell;
+			sourceTree = "<group>";
+		};
+		CE20C983227F1832008ABB43 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE20C97F227F181F008ABB43 /* ImageCell.swift */,
+				CE20C980227F181F008ABB43 /* ImageCell.xib */,
+			);
+			name = ImageCell;
+			path = ../ImageCell;
+			sourceTree = "<group>";
+		};
+		CE20C984227F30AE008ABB43 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE105B1422773495006D180D /* StringCell */,
+				CEE55AFE227E041800FE0493 /* BoolCell */,
+				CEE55B03227E16DB00FE0493 /* DateCell */,
+				CE20C983227F1832008ABB43 /* ImageCell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CEE55AFE227E041800FE0493 /* BoolCell */ = {
@@ -165,7 +189,8 @@
 				CEE55AFA227E040E00FE0493 /* BoolCell.swift */,
 				CEE55AFB227E040E00FE0493 /* BoolCell.xib */,
 			);
-			path = BoolCell;
+			name = BoolCell;
+			path = ../BoolCell;
 			sourceTree = "<group>";
 		};
 		CEE55B03227E16DB00FE0493 /* DateCell */ = {
@@ -174,7 +199,8 @@
 				CEE55AFF227E16CA00FE0493 /* DateCell.swift */,
 				CEE55B00227E16CA00FE0493 /* DateCell.xib */,
 			);
-			path = DateCell;
+			name = DateCell;
+			path = ../DateCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +263,7 @@
 			files = (
 				CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */,
 				CE105AF62276FF4C006D180D /* LaunchScreen.storyboard in Resources */,
+				CE20C982227F181F008ABB43 /* ImageCell.xib in Resources */,
 				CE105AF32276FF4C006D180D /* Assets.xcassets in Resources */,
 				CEE55B02227E16CA00FE0493 /* DateCell.xib in Resources */,
 				CE105B132277348B006D180D /* StringCell.xib in Resources */,
@@ -253,6 +280,7 @@
 			files = (
 				CE105B0122770316006D180D /* ToDoListViewController.swift in Sources */,
 				CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */,
+				CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */,
 				CE105B0322770343006D180D /* ToDoItemViewController.swift in Sources */,
 				CE105B122277348B006D180D /* StringCell.swift in Sources */,
 				CE105AEC2276FF49006D180D /* AppDelegate.swift in Sources */,

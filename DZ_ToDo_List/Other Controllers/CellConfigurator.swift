@@ -10,6 +10,9 @@ import UIKit
 
 class CellConfigurator {
     
+   static let defaultRowHeigh = CGFloat(44)
+   static let customRowHeigh = CGFloat(216)
+    
     static func configureToDoCell(_ cell: UITableViewCell, for todo: ToDo) {
         cell.imageView?.image = todo.image
         cell.textLabel?.text = todo.title
@@ -25,6 +28,8 @@ class CellConfigurator {
             return getConfiguredBoolCell(in: controller, for: value as! Bool)
         case is Date:
             return getConfiguredDateCell(in: controller, for: value as! Date)
+        case is UIImage:
+            return getConfiguredImageCell(in: controller, for: value as! UIImage)
         default:
             return UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
         }
@@ -95,4 +100,47 @@ class CellConfigurator {
         
         return cell
     }
+    
+    private static func getConfiguredImageCell(in controller: UITableViewController, for value: UIImage) -> ImageCell {
+        
+        let cell = controller.tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! ImageCell
+        
+        if let delegate = controller as? ImageCellDelegate {
+            cell.delegate = delegate
+        }
+        
+        var image = value
+        
+        if image.size == CGSize.zero {
+           image = UIImage(named: "placeholder.jpeg")!
+        }
+        
+        if controller.tableView.isEditing {
+            cell.stackView.isHidden = false
+            cell.photoView.isHidden = true
+        } else {
+            cell.photoView.image = image
+            cell.photoView.isHidden = false
+            cell.stackView.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    static func getHeighForCell(with value: Any, in controller: UITableViewController) -> CGFloat {
+        
+        if value is Date &&
+            controller.tableView.isEditing {
+            return customRowHeigh
+        }
+        
+        if value is UIImage &&
+            !controller.tableView.isEditing {
+            return customRowHeigh
+        }
+        
+        return defaultRowHeigh
+        
+    }
+    
 }
