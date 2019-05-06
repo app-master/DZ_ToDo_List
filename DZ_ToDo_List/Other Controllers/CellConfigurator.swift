@@ -22,13 +22,14 @@ class CellConfigurator {
         tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
         tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
         tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
+        tableView.register(UINib(nibName: "IntCell", bundle: nil), forCellReuseIdentifier: "IntCell")
     }
     
     static func configureToDoCell(_ cell: ToDoCell, for todo: ToDo) {
         
         var image = todo.image
         
-        if image?.size == CGSize.zero {
+        if image.size == CGSize.zero {
             image = UIImage(named: "placeholder1.jpeg")!
         }
         
@@ -48,6 +49,8 @@ class CellConfigurator {
             return getConfiguredDateCell(in: controller, for: value as! Date)
         case is UIImage:
             return getConfiguredImageCell(in: controller, for: value as! UIImage)
+        case is Int:
+            return getConfiguredIntCell(in: controller, for: value as! Int)
         default:
             return ToDoItemCell()
         }
@@ -129,6 +132,28 @@ class CellConfigurator {
             cell.photoView.image = image
             cell.photoView.isHidden = false
             cell.photoButton.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    private static func getConfiguredIntCell(in controller: UITableViewController, for value: Int) -> IntCell {
+        
+        let cell = controller.tableView.dequeueReusableCell(withIdentifier: "IntCell") as! IntCell
+        
+        if controller.tableView.isEditing {
+            cell.segmentedControl.selectedSegmentIndex = value
+            cell.segmentedControl.isHidden = false
+            cell.titleLabel.isHidden = true
+        } else {
+            switch value {
+            case 0: cell.titleLabel.text = "Low"
+            case 1: cell.titleLabel.text = "Medium"
+            case 2: cell.titleLabel.text = "High"
+            default: break
+            }
+            cell.titleLabel.isHidden = false
+            cell.segmentedControl.isHidden = true
         }
         
         return cell

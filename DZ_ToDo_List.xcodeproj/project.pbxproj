@@ -28,6 +28,8 @@
 		CEF4A748228052DF00BCF402 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A746228052DF00BCF402 /* ToDoCell.swift */; };
 		CEF4A749228052E000BCF402 /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF4A747228052DF00BCF402 /* ToDoCell.xib */; };
 		CEF4BA7A227F315C00935992 /* ToDoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4BA79227F315C00935992 /* ToDoItemCell.swift */; };
+		CEF7CC8C2280BB42009FD607 /* IntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7CC8A2280BB42009FD607 /* IntCell.swift */; };
+		CEF7CC8D2280BB42009FD607 /* IntCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF7CC8B2280BB42009FD607 /* IntCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		CEF4A746228052DF00BCF402 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		CEF4A747228052DF00BCF402 /* ToDoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
 		CEF4BA79227F315C00935992 /* ToDoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoItemCell.swift; path = ../ToDoItemCell.swift; sourceTree = "<group>"; };
+		CEF7CC8A2280BB42009FD607 /* IntCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntCell.swift; sourceTree = "<group>"; };
+		CEF7CC8B2280BB42009FD607 /* IntCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 				CEE55AFE227E041800FE0493 /* BoolCell */,
 				CEE55B03227E16DB00FE0493 /* DateCell */,
 				CE20C983227F1832008ABB43 /* ImageCell */,
+				CEF7CC8E2280BB51009FD607 /* SegmentedCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -226,6 +231,15 @@
 				CEF4BA79227F315C00935992 /* ToDoItemCell.swift */,
 			);
 			path = ToDoItemCell;
+			sourceTree = "<group>";
+		};
+		CEF7CC8E2280BB51009FD607 /* SegmentedCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7CC8A2280BB42009FD607 /* IntCell.swift */,
+				CEF7CC8B2280BB42009FD607 /* IntCell.xib */,
+			);
+			path = SegmentedCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */,
+				CEF7CC8D2280BB42009FD607 /* IntCell.xib in Resources */,
 				CE105AF62276FF4C006D180D /* LaunchScreen.storyboard in Resources */,
 				CE20C982227F181F008ABB43 /* ImageCell.xib in Resources */,
 				CEF4A749228052E000BCF402 /* ToDoCell.xib in Resources */,
@@ -308,6 +323,7 @@
 				CEF4A748228052DF00BCF402 /* ToDoCell.swift in Sources */,
 				CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */,
 				CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */,
+				CEF7CC8C2280BB42009FD607 /* IntCell.swift in Sources */,
 				CE105B0322770343006D180D /* ToDoItemViewController.swift in Sources */,
 				CE105B122277348B006D180D /* StringCell.swift in Sources */,
 				CE105AEC2276FF49006D180D /* AppDelegate.swift in Sources */,

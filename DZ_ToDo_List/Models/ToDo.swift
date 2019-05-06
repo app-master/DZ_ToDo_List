@@ -12,19 +12,22 @@ import UIKit
     var title: String
     var isComplete: Bool
     var dueDate: Date
-    var notes: String?
-    var image: UIImage?
+    var notes: String
+    var image: UIImage
+    var priority: Int
     
     init(title: String,
          isComplete: Bool,
          dueDate: Date,
          notes: String,
-         image: UIImage) {
+         image: UIImage,
+         priority: Int) {
         self.title = title
         self.isComplete = isComplete
         self.dueDate = dueDate
         self.notes = notes
         self.image = image
+        self.priority = priority
     }
     
     convenience override init() {
@@ -32,7 +35,8 @@ import UIKit
                   isComplete: Bool(),
                   dueDate: Date(),
                   notes: String(),
-                  image: UIImage())
+                  image: UIImage(),
+                  priority: 0)
     }
 }
 
@@ -62,9 +66,9 @@ extension Todos {
     
     static func loadSampleData() -> Todos {
         return [
-            ToDo(title: "Купить крем", isComplete: false, dueDate: Date(), notes: "Для загара", image: UIImage()),
-            ToDo(title: "Сходить на выставку", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24), notes: "Выставка Эдварда Мунка", image: UIImage(named: "scream.jpeg")!),
-            ToDo(title: "Заработать 10000$", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24 * 180), notes: "", image: UIImage())
+            ToDo(title: "Купить крем", isComplete: false, dueDate: Date(), notes: "Для загара", image: UIImage(), priority: 2),
+            ToDo(title: "Сходить на выставку", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24), notes: "Выставка Эдварда Мунка", image: UIImage(named: "scream.jpeg")!, priority: 1),
+            ToDo(title: "Заработать 10000$", isComplete: false, dueDate: Date().addingTimeInterval(60 * 60 * 24 * 180), notes: "", image: UIImage(), priority: 0)
         ]
     }
     
