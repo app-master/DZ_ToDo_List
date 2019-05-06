@@ -14,7 +14,7 @@ class BoolCell: ToDoItemCell {
     @IBOutlet weak var theSwitch: UISwitch!
     
     @IBAction func actionSwitch(_ sender: UISwitch) {
-        delegate?.editingDidEndCell(self, with: sender.isOn)
+        delegate?.editingChangedCell(self, with: sender.isOn)
     }
     
 }

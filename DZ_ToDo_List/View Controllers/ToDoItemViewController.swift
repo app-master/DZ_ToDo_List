@@ -13,6 +13,7 @@ class ToDoItemViewController: UITableViewController {
     var todo = ToDo()
     var dict = [String : Any]()
     
+    var doneButtonPressed = false
     weak var selectedImageCell: ToDoItemCell?
     
     override func viewDidLoad() {
@@ -32,7 +33,12 @@ class ToDoItemViewController: UITableViewController {
             let cancelButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(actionCancelButton))
             navigationItem.leftBarButtonItem = cancelButtonItem
         } else {
-            navigationItem.leftBarButtonItem = nil
+            if doneButtonPressed == true {
+                let backButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(actionBackButton))
+                navigationItem.leftBarButtonItem = backButtonItem
+            } else {
+                navigationItem.leftBarButtonItem = nil
+            }
         }
     }
     
@@ -104,8 +110,8 @@ class ToDoItemViewController: UITableViewController {
         
         if isEditing {
             // Done button pressed
-            tableView.endEditing(true)
             updateToDo()
+            doneButtonPressed = true
         }
         
         tableView.setEditing(!isEditing, animated: true)
@@ -115,7 +121,7 @@ class ToDoItemViewController: UITableViewController {
         
     }
     
-    @objc func actionCancelButton(_ sender: UIBarButtonItem) {
+    @objc private func actionCancelButton(_ sender: UIBarButtonItem) {
         
         dict.removeAll()
         
@@ -123,6 +129,10 @@ class ToDoItemViewController: UITableViewController {
         tableView.reloadData()
         
         updateBurButtonItems()
+    }
+    
+    @objc private func actionBackButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "UnwindToList", sender: sender)
     }
     
 }
@@ -171,7 +181,7 @@ extension ToDoItemViewController {
 // MARK: - ToDoItemCell Delegate
 
 extension ToDoItemViewController: ToDoItemCellDelegate {
-    func editingDidEndCell(_ cell: ToDoItemCell, with newValue: Any) {
+    func editingChangedCell(_ cell: ToDoItemCell, with newValue: Any) {
         updateValue(newValue, for: cell)
     }
     

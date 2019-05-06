@@ -25,6 +25,8 @@
 		CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55AFB227E040E00FE0493 /* BoolCell.xib */; };
 		CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFF227E16CA00FE0493 /* DateCell.swift */; };
 		CEE55B02227E16CA00FE0493 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55B00227E16CA00FE0493 /* DateCell.xib */; };
+		CEF4A748228052DF00BCF402 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4A746228052DF00BCF402 /* ToDoCell.swift */; };
+		CEF4A749228052E000BCF402 /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF4A747228052DF00BCF402 /* ToDoCell.xib */; };
 		CEF4BA7A227F315C00935992 /* ToDoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4BA79227F315C00935992 /* ToDoItemCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +51,9 @@
 		CEE55AFB227E040E00FE0493 /* BoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoolCell.xib; sourceTree = "<group>"; };
 		CEE55AFF227E16CA00FE0493 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = ../DateCell.swift; sourceTree = "<group>"; };
 		CEE55B00227E16CA00FE0493 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DateCell.xib; path = ../DateCell.xib; sourceTree = "<group>"; };
-		CEF4BA79227F315C00935992 /* ToDoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemCell.swift; sourceTree = "<group>"; };
+		CEF4A746228052DF00BCF402 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		CEF4A747228052DF00BCF402 /* ToDoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
+		CEF4BA79227F315C00935992 /* ToDoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoItemCell.swift; path = ../ToDoItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,13 +181,23 @@
 		CE20C984227F30AE008ABB43 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CEF4BA79227F315C00935992 /* ToDoItemCell.swift */,
+				CEB2EE192280534900F1C3A6 /* ToDoCell */,
+				CEF4A74A228052FF00BCF402 /* ToDoItemCell */,
 				CE105B1422773495006D180D /* StringCell */,
 				CEE55AFE227E041800FE0493 /* BoolCell */,
 				CEE55B03227E16DB00FE0493 /* DateCell */,
 				CE20C983227F1832008ABB43 /* ImageCell */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CEB2EE192280534900F1C3A6 /* ToDoCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4A746228052DF00BCF402 /* ToDoCell.swift */,
+				CEF4A747228052DF00BCF402 /* ToDoCell.xib */,
+			);
+			path = ToDoCell;
 			sourceTree = "<group>";
 		};
 		CEE55AFE227E041800FE0493 /* BoolCell */ = {
@@ -204,6 +218,14 @@
 			);
 			name = DateCell;
 			path = ../DateCell;
+			sourceTree = "<group>";
+		};
+		CEF4A74A228052FF00BCF402 /* ToDoItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4BA79227F315C00935992 /* ToDoItemCell.swift */,
+			);
+			path = ToDoItemCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +289,7 @@
 				CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */,
 				CE105AF62276FF4C006D180D /* LaunchScreen.storyboard in Resources */,
 				CE20C982227F181F008ABB43 /* ImageCell.xib in Resources */,
+				CEF4A749228052E000BCF402 /* ToDoCell.xib in Resources */,
 				CE105AF32276FF4C006D180D /* Assets.xcassets in Resources */,
 				CEE55B02227E16CA00FE0493 /* DateCell.xib in Resources */,
 				CE105B132277348B006D180D /* StringCell.xib in Resources */,
@@ -282,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE105B0122770316006D180D /* ToDoListViewController.swift in Sources */,
+				CEF4A748228052DF00BCF402 /* ToDoCell.swift in Sources */,
 				CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */,
 				CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */,
 				CE105B0322770343006D180D /* ToDoItemViewController.swift in Sources */,

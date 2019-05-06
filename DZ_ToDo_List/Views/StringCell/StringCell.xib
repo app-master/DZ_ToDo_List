@@ -31,7 +31,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" returnKeyType="done"/>
                         <connections>
-                            <action selector="actionFieldEditingEnd:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="eld-0a-XAv"/>
+                            <action selector="actionEditingChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="4u5-sT-HfB"/>
                         </connections>
                     </textField>
                 </subviews>

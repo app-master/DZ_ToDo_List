@@ -13,8 +13,8 @@ class StringCell: ToDoItemCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleField: UITextField!
     
-    @IBAction func actionFieldEditingEnd(_ textField: UITextField) {
-        delegate?.editingDidEndCell(self, with: textField.text ?? "")
+    @IBAction func actionEditingChanged(_ textField: UITextField) {
+        delegate?.editingChangedCell(self, with: textField.text ?? "")
     }
     
 }

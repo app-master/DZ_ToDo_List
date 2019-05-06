@@ -14,7 +14,7 @@ class DateCell: ToDoItemCell {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        delegate?.editingDidEndCell(self, with: sender.date)
+        delegate?.editingChangedCell(self, with: sender.date)
     }
     
 }

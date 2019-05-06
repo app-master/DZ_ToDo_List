@@ -15,6 +15,8 @@ class ToDoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CellConfigurator.registerToDoCellsIn(tableView)
+        
         loadData()
     }
     
@@ -40,7 +42,7 @@ extension ToDoListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell") as! ToDoCell
         
         let todo = todos[indexPath.row]
         
@@ -57,8 +59,6 @@ extension ToDoListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         let todo = todos[indexPath.row]
         
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ToDoItemViewController") as? ToDoItemViewController else { return }
@@ -69,18 +69,34 @@ extension ToDoListViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CellConfigurator.defaultRowHeigh
+    }
+    
 }
 
 // MARK: - Segue
 
-//extension ToDoListViewController {
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "AddToDoSegue" {
-//            
-//        }
-//        
-//    }
-//    
-//}
+extension ToDoListViewController {
+    
+    @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
+        if unwindSegue.identifier == "UnwindToList" {
+            let selectedIndexPath = tableView.indexPathForSelectedRow
+            if let indexPath = selectedIndexPath {
+                tableView.beginUpdates()
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                tableView.deselectRow(at: indexPath, animated: true)
+            } else {
+                let vc = unwindSegue.source as! ToDoItemViewController
+                let newToDo = vc.todo
+                todos.append(newToDo)
+                let newIndexPath = IndexPath(row: todos.count - 1, section: 0)
+                tableView.beginUpdates()
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+                tableView.endUpdates()
+            }
+        }
+    }
+    
+}

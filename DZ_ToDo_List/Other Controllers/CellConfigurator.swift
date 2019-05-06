@@ -13,6 +13,10 @@ class CellConfigurator {
     static let defaultRowHeigh = CGFloat(44)
     static let customRowHeigh = CGFloat(216)
     
+    static func registerToDoCellsIn(_ tableView: UITableView) {
+        tableView.register(UINib(nibName: "ToDoCell", bundle: nil), forCellReuseIdentifier: "ToDoCell")
+    }
+    
     static func registerToDoItemCellsIn(_ tableView: UITableView) {
         tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
         tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
@@ -20,7 +24,7 @@ class CellConfigurator {
         tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
     }
     
-    static func configureToDoCell(_ cell: UITableViewCell, for todo: ToDo) {
+    static func configureToDoCell(_ cell: ToDoCell, for todo: ToDo) {
         
         var image = todo.image
         
@@ -28,9 +32,9 @@ class CellConfigurator {
             image = UIImage(named: "placeholder1.jpeg")!
         }
         
-        cell.imageView?.image = image
-        cell.textLabel?.text = todo.title
-        cell.detailTextLabel?.text = todo.dueDate.shortFormatted
+        cell.photoView.image = image
+        cell.titleLabel.text = todo.title
+        cell.subTitleLabel.text = todo.dueDate.shortFormatted
     }
     
     static func getConfiguredToDoItemCell(in controller: UITableViewController, for value: Any) -> ToDoItemCell {
