@@ -9,12 +9,26 @@
 import UIKit
 
 class CellConfigurator {
+   
+    static let defaultRowHeigh = CGFloat(44)
+    static let customRowHeigh = CGFloat(216)
     
-   static let defaultRowHeigh = CGFloat(44)
-   static let customRowHeigh = CGFloat(216)
+    static func registerToDoItemCellsIn(_ tableView: UITableView) {
+        tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
+        tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
+        tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
+        tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
+    }
     
     static func configureToDoCell(_ cell: UITableViewCell, for todo: ToDo) {
-        cell.imageView?.image = todo.image
+        
+        var image = todo.image
+        
+        if image?.size == CGSize.zero {
+            image = UIImage(named: "placeholder1.jpeg")!
+        }
+        
+        cell.imageView?.image = image
         cell.textLabel?.text = todo.title
         cell.detailTextLabel?.text = todo.dueDate.shortFormatted
     }
@@ -39,7 +53,7 @@ class CellConfigurator {
     private static func getConfiguredStringCell(in controller: UITableViewController, for value: String) -> StringCell {
     
         let cell = controller.tableView.dequeueReusableCell(withIdentifier: "StringCell") as! StringCell
-        
+                
         if controller.tableView.isEditing {
             cell.titleLabel.isHidden = true
             cell.titleField.text = value
@@ -96,10 +110,11 @@ class CellConfigurator {
         var image = value
         
         if image.size == CGSize.zero {
-           image = UIImage(named: "placeholder.jpeg")!
+           image = UIImage(named: "placeholder2.jpeg")!
         }
         
         if controller.tableView.isEditing {
+            cell.photoButton.setTitle("Take Image", for: .normal)
             cell.photoButton.isHidden = false
             cell.photoView.isHidden = true
         } else {
@@ -124,7 +139,6 @@ class CellConfigurator {
         }
         
         return defaultRowHeigh
-        
     }
     
 }

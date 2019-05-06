@@ -13,13 +13,12 @@ class ToDoItemViewController: UITableViewController {
     var todo = ToDo()
     var dict = [String : Any]()
     
+    weak var selectedImageCell: ToDoItemCell?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "StringCell", bundle: nil), forCellReuseIdentifier: "StringCell")
-        tableView.register(UINib(nibName: "BoolCell", bundle: nil), forCellReuseIdentifier: "BoolCell")
-        tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
-        tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
+        CellConfigurator.registerToDoItemCellsIn(tableView)
         
         let editButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(actionEditButton))
         navigationItem.rightBarButtonItem = editButtonItem
@@ -64,6 +63,37 @@ class ToDoItemViewController: UITableViewController {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let key = todo.keys[indexPath.section]
         dict.updateValue(value, forKey: key)
+    }
+    
+    private func showAlertForSelectImageFromCell(_ cell: ToDoItemCell) {
+        let alertController = UIAlertController(title: nil, message: "Select source", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+                pickerController.sourceType = .camera
+                self.present(pickerController, animated: true, completion: {
+                    self.selectedImageCell = cell
+                })
+            }
+            alertController.addAction(cameraAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+                pickerController.sourceType = .photoLibrary
+                self.present(pickerController, animated: true, completion: {
+                    self.selectedImageCell = cell
+                })
+            }
+            alertController.addAction(libraryAction)
+        }
+        
+        present(alertController, animated: true)
     }
     
     // MARK: - Actions
@@ -135,7 +165,7 @@ extension ToDoItemViewController {
         
         return CellConfigurator.getHeighForCell(with: value, in: self)
     }
-    
+        
 }
 
 // MARK: - ToDoItemCell Delegate
@@ -146,7 +176,27 @@ extension ToDoItemViewController: ToDoItemCellDelegate {
     }
     
     func buttonTapped(in cell: ToDoItemCell, sender: UIButton) {
-        print(#function)
+        showAlertForSelectImageFromCell(cell)
     }
+}
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension ToDoItemViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        guard let cell = selectedImageCell as? ImageCell else { return }
+        cell.photoButton.setTitle("Image selected", for: .normal)
+        updateValue(image, for: cell)
+        selectedImageCell = nil
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        selectedImageCell = nil
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
