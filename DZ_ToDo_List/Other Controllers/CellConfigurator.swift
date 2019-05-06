@@ -57,7 +57,11 @@ class CellConfigurator {
     private static func getConfiguredStringCell(in controller: UITableViewController, for value: String) -> StringCell {
     
         let cell = controller.tableView.dequeueReusableCell(withIdentifier: "StringCell") as! StringCell
-                
+        
+        if let delegate = controller as? UITextFieldDelegate {
+            cell.titleField.delegate = delegate
+        }
+        
         if controller.tableView.isEditing {
             cell.titleLabel.isHidden = true
             cell.titleField.text = value

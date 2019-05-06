@@ -163,6 +163,10 @@ extension ToDoItemViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
 }
 
 // MARK: - Table View Delegate
@@ -175,7 +179,7 @@ extension ToDoItemViewController {
         
         return CellConfigurator.getHeighForCell(with: value, in: self)
     }
-        
+    
 }
 
 // MARK: - ToDoItemCell Delegate
@@ -206,6 +210,15 @@ extension ToDoItemViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         selectedImageCell = nil
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension ToDoItemViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
