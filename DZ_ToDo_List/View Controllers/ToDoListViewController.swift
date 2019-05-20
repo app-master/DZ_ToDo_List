@@ -70,11 +70,15 @@ extension ToDoListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let todo = todos[indexPath.row]
-            todos.remove(at: indexPath.row)
             let context = DataManager.manager.persistentContainer.viewContext
             context.delete(todo)
-            try? context.save()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            do {
+                try context.save()
+                todos.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } catch {
+                print("SAVE ERROR: \(error.localizedDescription)")
+            }
         }
     }
     
