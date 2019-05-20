@@ -19,3 +19,15 @@ extension Date {
     }
     
 }
+
+//extension NSDate {
+//    
+//    var shortFormatted: String {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale.current
+//        formatter.dateStyle = .short
+//        formatter.timeStyle = .none
+//        return formatter.string(from: self as Date)
+//    }
+//    
+//}

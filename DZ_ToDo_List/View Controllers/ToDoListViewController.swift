@@ -23,7 +23,19 @@ class ToDoListViewController: UITableViewController {
     // MARK: - Custom Methods
     
     private func loadData() {
-        if let todos = Todos.loadData() {
+        if let todos = Todos.loadData(), todos.count > 0 {
+            for todo in todos {
+                for key in todo.keys {
+                    let keyCD = key.appending("CD")
+                    let value = todo.value(forKey: keyCD)
+                    
+                    if value is NSData {
+                        todo.setValue(UIImage(data: value as! Data), forKey: key)
+                    } else {
+                        todo.setValue(value, forKey: key)
+                    }
+                }
+            }
             self.todos = todos
         } else {
             self.todos = Todos.loadSampleData()
@@ -49,6 +61,21 @@ extension ToDoListViewController {
         CellConfigurator.configureToDoCell(cell, for: todo)
         
         return  cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let todo = todos[indexPath.row]
+            todos.remove(at: indexPath.row)
+            let context = DataManager.manager.persistentContainer.viewContext
+            context.delete(todo)
+            try? context.save()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
 }
@@ -79,6 +106,15 @@ extension ToDoListViewController {
 
 extension ToDoListViewController {
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "AddToDoSegue" {
+            let vc = segue.destination as! ToDoItemViewController
+            vc.todo = ToDo.newToDo()
+        }
+        
+    }
+    
     @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
         if unwindSegue.identifier == "UnwindToList" {
             let selectedIndexPath = tableView.indexPathForSelectedRow
@@ -90,7 +126,7 @@ extension ToDoListViewController {
             } else {
                 let vc = unwindSegue.source as! ToDoItemViewController
                 let newToDo = vc.todo
-                todos.append(newToDo)
+                todos.append(newToDo!)
                 let newIndexPath = IndexPath(row: todos.count - 1, section: 0)
                 tableView.beginUpdates()
                 tableView.insertRows(at: [newIndexPath], with: .automatic)

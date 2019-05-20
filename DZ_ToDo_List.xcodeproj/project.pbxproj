@@ -13,7 +13,6 @@
 		CE105AF62276FF4C006D180D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE105AF42276FF4C006D180D /* LaunchScreen.storyboard */; };
 		CE105B0122770316006D180D /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0022770316006D180D /* ToDoListViewController.swift */; };
 		CE105B0322770343006D180D /* ToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0222770343006D180D /* ToDoItemViewController.swift */; };
-		CE105B06227703C3006D180D /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B05227703C3006D180D /* ToDo.swift */; };
 		CE105B09227710F5006D180D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B08227710F5006D180D /* String+Extension.swift */; };
 		CE105B0C2277166C006D180D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0B2277166C006D180D /* Date+Extension.swift */; };
 		CE105B0E227725C8006D180D /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE105B0D227725C8006D180D /* CellConfigurator.swift */; };
@@ -21,6 +20,10 @@
 		CE105B132277348B006D180D /* StringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE105B112277348B006D180D /* StringCell.xib */; };
 		CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C97F227F181F008ABB43 /* ImageCell.swift */; };
 		CE20C982227F181F008ABB43 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE20C980227F181F008ABB43 /* ImageCell.xib */; };
+		CE68EC4C2292CDE2007D21D3 /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68EC4A2292CDE2007D21D3 /* ToDo+CoreDataClass.swift */; };
+		CE68EC4D2292CDE2007D21D3 /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68EC4B2292CDE2007D21D3 /* ToDo+CoreDataProperties.swift */; };
+		CEC92D412292B9A100D73EAB /* DZ_ToDo_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEC92D3F2292B9A100D73EAB /* DZ_ToDo_List.xcdatamodeld */; };
+		CEC92D432292B9E900D73EAB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC92D422292B9E900D73EAB /* DataManager.swift */; };
 		CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFA227E040E00FE0493 /* BoolCell.swift */; };
 		CEE55AFD227E040E00FE0493 /* BoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE55AFB227E040E00FE0493 /* BoolCell.xib */; };
 		CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE55AFF227E16CA00FE0493 /* DateCell.swift */; };
@@ -41,7 +44,6 @@
 		CE105AF72276FF4C006D180D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE105B0022770316006D180D /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		CE105B0222770343006D180D /* ToDoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemViewController.swift; sourceTree = "<group>"; };
-		CE105B05227703C3006D180D /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		CE105B08227710F5006D180D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE105B0B2277166C006D180D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CE105B0D227725C8006D180D /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		CE105B112277348B006D180D /* StringCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringCell.xib; sourceTree = "<group>"; };
 		CE20C97F227F181F008ABB43 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		CE20C980227F181F008ABB43 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		CE68EC4A2292CDE2007D21D3 /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE68EC4B2292CDE2007D21D3 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CEC92D402292B9A100D73EAB /* DZ_ToDo_List.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DZ_ToDo_List.xcdatamodel; sourceTree = "<group>"; };
+		CEC92D422292B9E900D73EAB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CEE55AFA227E040E00FE0493 /* BoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolCell.swift; sourceTree = "<group>"; };
 		CEE55AFB227E040E00FE0493 /* BoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoolCell.xib; sourceTree = "<group>"; };
 		CEE55AFF227E16CA00FE0493 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateCell.swift; path = ../DateCell.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 		CE105AEA2276FF49006D180D /* DZ_ToDo_List */ = {
 			isa = PBXGroup;
 			children = (
+				CEC92D442292B9FB00D73EAB /* Managers */,
 				CE105B0F22772638006D180D /* Other Controllers */,
 				CE105B0A22771106006D180D /* Extensions */,
 				CE105B07227703C9006D180D /* Models */,
@@ -122,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CE105AEB2276FF49006D180D /* AppDelegate.swift */,
+				CEC92D3F2292B9A100D73EAB /* DZ_ToDo_List.xcdatamodeld */,
 				CE105AF22276FF4C006D180D /* Assets.xcassets */,
 				CE105AF72276FF4C006D180D /* Info.plist */,
 			);
@@ -140,7 +148,8 @@
 		CE105B07227703C9006D180D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE105B05227703C3006D180D /* ToDo.swift */,
+				CE68EC4A2292CDE2007D21D3 /* ToDo+CoreDataClass.swift */,
+				CE68EC4B2292CDE2007D21D3 /* ToDo+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +212,14 @@
 				CEF4A747228052DF00BCF402 /* ToDoCell.xib */,
 			);
 			path = ToDoCell;
+			sourceTree = "<group>";
+		};
+		CEC92D442292B9FB00D73EAB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CEC92D422292B9E900D73EAB /* DataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CEE55AFE227E041800FE0493 /* BoolCell */ = {
@@ -319,8 +336,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE68EC4D2292CDE2007D21D3 /* ToDo+CoreDataProperties.swift in Sources */,
 				CE105B0122770316006D180D /* ToDoListViewController.swift in Sources */,
+				CEC92D432292B9E900D73EAB /* DataManager.swift in Sources */,
 				CEF4A748228052DF00BCF402 /* ToDoCell.swift in Sources */,
+				CEC92D412292B9A100D73EAB /* DZ_ToDo_List.xcdatamodeld in Sources */,
 				CEE55B01227E16CA00FE0493 /* DateCell.swift in Sources */,
 				CE20C981227F181F008ABB43 /* ImageCell.swift in Sources */,
 				CEF7CC8C2280BB42009FD607 /* IntCell.swift in Sources */,
@@ -330,9 +350,9 @@
 				CEF4BA7A227F315C00935992 /* ToDoItemCell.swift in Sources */,
 				CE105B09227710F5006D180D /* String+Extension.swift in Sources */,
 				CEE55AFC227E040E00FE0493 /* BoolCell.swift in Sources */,
-				CE105B06227703C3006D180D /* ToDo.swift in Sources */,
 				CE105B0E227725C8006D180D /* CellConfigurator.swift in Sources */,
 				CE105B0C2277166C006D180D /* Date+Extension.swift in Sources */,
+				CE68EC4C2292CDE2007D21D3 /* ToDo+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +552,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEC92D3F2292B9A100D73EAB /* DZ_ToDo_List.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEC92D402292B9A100D73EAB /* DZ_ToDo_List.xcdatamodel */,
+			);
+			currentVersion = CEC92D402292B9A100D73EAB /* DZ_ToDo_List.xcdatamodel */;
+			path = DZ_ToDo_List.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE105AE02276FF49006D180D /* Project object */;
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoItemViewController: UITableViewController {
 
-    var todo = ToDo()
+    var todo: ToDo!
     var dict = [String : Any]()
     
     var doneButtonPressed = false
@@ -62,7 +62,25 @@ class ToDoItemViewController: UITableViewController {
         for (key, value) in dict {
             todo.setValue(value, forKey: key)
         }
+        
         dict.removeAll()
+        
+        for (key, value) in zip(todo.keys, todo.values) {
+            let keyCD = key.appending("CD")
+            
+            if let image = value as? UIImage {
+                todo.setValue(image.pngData()!, forKey: keyCD)
+            } else {
+                todo.setValue(value, forKey: keyCD)
+            }
+        }
+        
+        do {
+            try todo.managedObjectContext?.save()
+        } catch {
+            print("SAVE ERROR: \(error.localizedDescription)")
+        }
+        
     }
     
     private func updateValue(_ value: Any, for cell: UITableViewCell) {
